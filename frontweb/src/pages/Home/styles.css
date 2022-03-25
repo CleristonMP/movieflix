@@ -1,37 +1,63 @@
 .main-container {
-  display: flex;
-  justify-content: space-around;
-  padding-top: 40px;
-  margin-bottom: 15px;
+  padding: 15px 10px;
 }
 
 .home-container {
-  padding: 40px 0;
+  display: none;
 }
 
-.content-container {
+@media (min-width: 576px) {
+  .main-container {
+    padding: 40px 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  .main-container {
+    padding: 40px 130px;
+  }
+}
+
+@media (min-width: 992px) {
+  .main-container {
+    padding: 40px 240px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0;
+    margin-bottom: 15px;
+  }
+
+  .home-container {
+    display: unset;
+    padding: 40px 0;
+  }
+
+  .content-container {
     margin-bottom: 50px;
-}
+  }
 
-.content-container h1 {
-  font-size: 48px;
-  letter-spacing: -0.015em;
-  margin-bottom: 20px;
-}
+  .content-container h1 {
+    font-size: 48px;
+    letter-spacing: -0.015em;
+    margin-bottom: 20px;
+  }
 
-.content-container p {
-  font-size: 22px;
-  letter-spacing: -0.015em;
-  color: #f2f2f2;
-}
+  .content-container p {
+    font-size: 22px;
+    letter-spacing: -0.015em;
+    color: #f2f2f2;
+  }
 
-.home-img-container {
-  width: 380px;
-}
+  .home-img-container {
+    width: 380px;
+  }
 
-.home-img-container img {
-  width: 100%;
-}
-
-.login-card-container {
+  .home-img-container img {
+    width: 100%;
+  }
 }

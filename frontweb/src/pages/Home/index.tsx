@@ -18,7 +18,7 @@ const Home = () => {
                     <HomeImg/>
                 </div>
             </div>
-            <div className="login-card-container">
+            <div>
                 <Login/>
             </div>
         </div>
