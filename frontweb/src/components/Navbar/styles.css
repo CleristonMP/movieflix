@@ -18,3 +18,7 @@
   align-items: center;
   justify-content: center;
 }
+
+.custom-nav-container {
+  max-width: 1088px;
+}

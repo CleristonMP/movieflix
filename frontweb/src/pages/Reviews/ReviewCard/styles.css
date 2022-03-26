@@ -1,0 +1,32 @@
+.review-card-container {
+    margin-bottom: 15px;
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 9px;
+}
+
+.reviewer img {
+  width: 13px;
+  margin-right: 15px;
+}
+
+.reviewer h6 {
+  font-size: 16px;
+  letter-spacing: -0.015em;
+}
+
+.review-text {
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  padding: 10px 30px 16px 12px;
+}
+
+.review-text p {
+  font-size: 16px;
+  text-align: justify;
+  letter-spacing: -0.015em;
+  color: #9e9e9e;
+}

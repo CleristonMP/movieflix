@@ -1,13 +1,13 @@
 import './assets/styles/custom.scss';
 import './App.css';
 import Navbar from 'components/Navbar';
-import Movies from 'pages/Movies';
+import Reviews from "pages/Reviews";
 
 function App() {
   return (
     <>
       <Navbar />
-      <Movies />
+      <Reviews/>
     </>
   );
 }

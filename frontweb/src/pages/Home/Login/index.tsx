@@ -2,7 +2,7 @@ import './styles.css';
 
 const Login = () => {
   return (
-    <div className="login-card">
+    <div className="login-card base-card">
         <h2>LOGIN</h2>
       <form className="login-form">
         <div className="form-group custom-input">
