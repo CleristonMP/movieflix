@@ -1,10 +1,14 @@
 import './assets/styles/custom.scss';
 import './App.css';
-import Home from 'pages/Home';
+import Navbar from 'components/Navbar';
+import Movies from 'pages/Movies';
 
 function App() {
   return (
-    <Home />
+    <>
+      <Navbar />
+      <Movies />
+    </>
   );
 }
 

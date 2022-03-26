@@ -1,0 +1,60 @@
+.title-container {
+  margin-top: 12px;
+  margin-bottom: 50px;
+}
+
+.title-container h1 {
+  font-size: 24px;
+  letter-spacing: -0.015em;
+}
+
+.list-movies-container p {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+@media (min-width: 576px) {
+  .title-container {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .title-container h1 {
+    font-size: 36px;
+  }
+
+  .list-movies-container p {
+    margin-bottom: 18px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .title-container {
+    margin-top: 30px;
+  }
+
+  .title-container h1 {
+    font-size: 42px;
+  }
+
+  .list-movies-container p {
+    margin-bottom: 24px;
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 992px) {
+  .title-container {
+    margin-top: 40px;
+  }
+
+  .title-container h1 {
+    font-size: 48px;
+  }
+
+  .list-movies-container p {
+    margin-bottom: 30px;
+    font-size: 24px;
+  }
+}
