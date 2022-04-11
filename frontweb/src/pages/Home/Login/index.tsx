@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { requestBackendLogin } from 'utils/requests';
+import { getAuthData, saveAuthData } from 'utils/storage';
 
 import './styles.css';
 
@@ -21,12 +22,11 @@ const Login = () => {
   const onSubmit = (formData: FormData) => {
     requestBackendLogin(formData)
       .then((response) => {
+        saveAuthData(response.data);
         setHasError(false);
-        console.log('SUCESSO');
       })
       .catch((error) => {
         setHasError(true);
-        console.log('DEU RUIM');
       });
   };
 
@@ -55,7 +55,9 @@ const Login = () => {
             placeholder="Email"
             name="username"
           />
-          <div className="invalid-feedback d-block error-msg">{errors.username?.message}</div>
+          <div className="invalid-feedback d-block error-msg">
+            {errors.username?.message}
+          </div>
         </div>
         <div className="form-group custom-input">
           <input
@@ -67,7 +69,9 @@ const Login = () => {
             placeholder="Senha"
             name="password"
           />
-          <div className="invalid-feedback d-block error-msg">{errors.password?.message}</div>
+          <div className="invalid-feedback d-block error-msg">
+            {errors.password?.message}
+          </div>
         </div>
         <button type="submit" className="btn btn-primary">
           Fazer Login
