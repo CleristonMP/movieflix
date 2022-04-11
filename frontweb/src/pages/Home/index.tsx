@@ -1,5 +1,4 @@
 import { ReactComponent as HomeImg } from 'assets/images/home-img.svg';
-import Navbar from 'components/Navbar';
 import Login from './Login';
 
 import './styles.css';

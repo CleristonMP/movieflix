@@ -8,6 +8,11 @@
   letter-spacing: -0.015em;
 }
 
+.list-movies-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .list-movies-container p {
   margin-bottom: 12px;
   font-size: 18px;

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from "react-router-dom";
 import { requestBackendLogin } from 'utils/requests';
-import { getAuthData, saveAuthData } from 'utils/storage';
+import { saveAuthData } from 'utils/storage';
 
 import './styles.css';
 
