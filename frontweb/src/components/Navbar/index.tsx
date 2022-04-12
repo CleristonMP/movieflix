@@ -1,35 +1,31 @@
-import { useEffect, useState } from 'react';
+import { AuthContext } from "AuthContext";
+import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getTokenData, isAuthenticated, TokenData } from 'utils/auth';
+import { getTokenData, isAuthenticated } from 'utils/auth';
 import history from 'utils/history';
 import { removeAuthData } from 'utils/storage';
 import './styles.css';
 
-type AuthData = {
-  authenticated: boolean;
-  tokenData?: TokenData;
-};
-
 const Navbar = () => {
-  const [authData, setAuthData] = useState<AuthData>({ authenticated: false });
+  const {authContextData, setAuthContextData} = useContext(AuthContext);
 
   useEffect(() => {
     if (isAuthenticated()) {
-      setAuthData({
+      setAuthContextData({
         authenticated: true,
         tokenData: getTokenData(),
       });
     } else {
-      setAuthData({
+      setAuthContextData({
         authenticated: false,
       });
     }
-  }, []);
+  }, [setAuthContextData]);
 
   const handleLogoutClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     removeAuthData();
-    setAuthData({ authenticated: false });
+    setAuthContextData({ authenticated: false });
     history.replace('/');
   };
 
@@ -39,7 +35,7 @@ const Navbar = () => {
         <Link to="/movies" className="navbar-brand text-secondary custom-brand">
           MovieFlix
         </Link>
-        {authData.authenticated ? (
+        {authContextData.authenticated ? (
           <button
             onClick={handleLogoutClick}
             className="btn btn-outline-secondary custom-btn"
