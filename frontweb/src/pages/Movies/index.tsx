@@ -1,9 +1,9 @@
-import { AxiosRequestConfig } from "axios";
-import { useEffect, useState } from "react";
+import { AxiosRequestConfig } from 'axios';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Movie } from "types/movie";
-import { SpringPage } from "types/vendor/spring";
-import { requestBackend } from "utils/requests";
+import { Movie } from 'types/movie';
+import { SpringPage } from 'types/vendor/spring';
+import { requestBackend } from 'utils/requests';
 
 import './styles.css';
 
