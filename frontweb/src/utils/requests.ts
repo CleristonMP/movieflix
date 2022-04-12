@@ -1,10 +1,10 @@
 import qs from 'qs';
 import axios, { AxiosRequestConfig } from 'axios';
 import { getAuthData } from './storage';
-import history from "./history";
+import history from './history';
 
 export const BASE_URL =
-  process.env.REACT_APP_BACKEND_URL ?? 'http://localhost:8080';
+  process.env.REACT_APP_BACKEND_URL ?? 'https://movieflix-devsuperior.herokuapp.com';
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID ?? 'myclientid';
 const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET ?? 'myclientsecret';
@@ -46,22 +46,28 @@ export const requestBackend = (config: AxiosRequestConfig) => {
 };
 
 // Add a request interceptor
-axios.interceptors.request.use(function (config) {
+axios.interceptors.request.use(
+  function (config) {
     //
     return config;
-  }, function (error) {
+  },
+  function (error) {
     //
     return Promise.reject(error);
-  });
+  }
+);
 
 // Add a response interceptor
-axios.interceptors.response.use(function (response) {
+axios.interceptors.response.use(
+  function (response) {
     //
     return response;
-  }, function (error) {
-    if (error.response.status === 401 || error.response.status === 403) {
+  },
+  function (error) {
+    if (error.response.status === 401) {
       history.push('/');
     }
 
     return Promise.reject(error);
-  });
+  }
+);

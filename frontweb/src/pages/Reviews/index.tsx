@@ -1,12 +1,41 @@
+import { AxiosRequestConfig } from 'axios';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Review } from 'types/review';
 import { hasAnyRoles } from 'utils/auth';
+import { requestBackend } from 'utils/requests';
 import ReviewCard from './ReviewCard';
+
 import './styles.css';
 
+type UrlParams = {
+  movieId: string;
+};
+
 const Reviews = () => {
+  const { movieId } = useParams<UrlParams>();
+
+  const [page, setPage] = useState<Review[]>();
+
+  useEffect(() => {
+    const params: AxiosRequestConfig = {
+      method: 'GET',
+      withCredentials: true,
+      url: `/movies/${movieId}/reviews`,
+    };
+
+    requestBackend(params)
+      .then((response) => {
+        setPage(response.data);
+      })
+      .catch((error) => {
+      });
+  }, [movieId]);
+
   return (
     <div className="container custom-container">
       <div className="reviews-page-title">
-        <h1>Tela detalhes do filme id: 1</h1>
+        <h1>Tela detalhes do filme id: {movieId}</h1>
       </div>
 
       {hasAnyRoles(['ROLE_MEMBER']) && (
@@ -28,13 +57,14 @@ const Reviews = () => {
         </div>
       )}
 
-      <div className="reviews-group base-card">
-        <ReviewCard />
-        <ReviewCard />
-        <ReviewCard />
-        <ReviewCard />
-        <ReviewCard />
-        <ReviewCard />
+      <div className="reviews-group base-card"> 
+        {
+          page?.map(
+            (review) => (
+              <ReviewCard review={review} key={review.id} />
+            )
+          )
+        }
       </div>
     </div>
   );

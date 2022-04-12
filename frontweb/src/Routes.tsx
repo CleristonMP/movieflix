@@ -11,15 +11,20 @@ const Routes = () => {
     <Router history={history}>
       <Navbar />
       <Switch>
+
         <Route path="/" exact>
           <Home />
         </Route>
+
         <PrivateRoute path="/movies">
-          <Movies />
+          <Route path="/movies" exact>
+            <Movies />
+          </Route>
+          <Route path="/movies/:movieId">
+            <Reviews />
+          </Route>
         </PrivateRoute>
-        <PrivateRoute path="/reviews">
-          <Reviews />
-        </PrivateRoute>
+
       </Switch>
     </Router>
   );

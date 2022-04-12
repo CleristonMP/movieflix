@@ -1,16 +1,21 @@
 import StarImg from 'assets/images/star.png';
+import { Review } from "types/review";
 
 import './styles.css';
 
-const ReviewCard = () => {
+type Props = {
+  review: Review;
+}
+
+const ReviewCard = ( {review} : Props ) => {
   return (
     <div className="review-card-container">
       <div className="reviewer">
         <img src={StarImg} alt="Estrela" />
-        <h6>Maria Silva</h6>
+        <h6>{review.user.name}</h6>
       </div>
       <div className="review-text">
-        <p>Gostei muito do filme. Foi muito bom mesmo. Pena que durou pouco.</p>
+        <p>{review.text}</p>
       </div>
     </div>
   );
