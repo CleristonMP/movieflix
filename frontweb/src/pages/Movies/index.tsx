@@ -5,6 +5,7 @@ import { SpringPage } from 'types/vendor/spring';
 import { requestBackend } from 'utils/requests';
 import GenreFilter from './GenreFilter';
 import MovieCard from './MovieCard';
+import Pagination from "./Pagination";
 
 import './styles.css';
 
@@ -37,6 +38,7 @@ const Movies = () => {
             ))}
           </div>
         </div>
+        <Pagination />
       </div>
     </div>
   );
