@@ -14,7 +14,7 @@ const MovieCard = ({ movie }: Props) => {
       <div className="moviecard-txt-ctr">
         <h2>{movie.title}</h2>
         <p className="moviecard-year">{movie.year}</p>
-        <p className="moviecard-subtitle">O olho do inimigo está se movendo.</p>
+        <p className="moviecard-subtitle">{movie.subTitle}</p>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 .moviecard-ctr {
+  min-height: 325px;
   padding: 25px 0;
   margin-bottom: 20px;
 }
@@ -13,6 +14,10 @@
 
 .moviecard-txt-ctr {
   padding: 0 15px;
+}
+
+.moviecard-txt-ctr h2 {
+  font-size: 20px;
 }
 
 .moviecard-year {
@@ -31,12 +36,26 @@
 }
 
 @media (min-width: 768px) {
+  .moviecard-ctr {
+    min-height: 365px;
+  }
+
   .moviecard-subtitle {
     width: 100%;
   }
 }
 
+@media (min-width: 992px) {
+  .moviecard-ctr {
+    min-height: 460px;
+  }
+}
+
 @media (min-width: 1200px) {
+  .moviecard-ctr {
+    min-height: 325px;
+  }
+
   .moviecard-subtitle {
     width: 80%;
   }
