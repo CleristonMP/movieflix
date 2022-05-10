@@ -1,0 +1,24 @@
+.moviecard-ctr {
+  padding: 25px 0;
+}
+
+.moviecard-img-ctr {
+  margin-bottom: 10px;
+}
+
+.moviecard-img-ctr img {
+  width: 100%;
+}
+
+.moviecard-txt-ctr {
+  padding: 0 15px;
+}
+
+.moviecard-year {
+  font-weight: 700;
+  color: #ffc700;
+}
+
+.moviecard-subtitle {
+  font-size: 14px;
+}
