@@ -1,5 +1,6 @@
 .moviecard-ctr {
   padding: 25px 0;
+  margin-bottom: 20px;
 }
 
 .moviecard-img-ctr {
@@ -21,4 +22,22 @@
 
 .moviecard-subtitle {
   font-size: 14px;
+}
+
+@media (min-width: 576px) {
+  .moviecard-subtitle {
+    width: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  .moviecard-subtitle {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .moviecard-subtitle {
+    width: 80%;
+  }
 }

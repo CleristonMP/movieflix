@@ -1,10 +1,10 @@
-import { Movie } from "types/movie";
+import { Movie } from 'types/movie';
+import GenreFilter from "./GenreFilter";
 import MovieCard from './MovieCard';
 
 import './styles.css';
 
 const Movies = () => {
-
   const movie: Movie = {
     id: 1,
     title: 'Bob Esponja',
@@ -21,12 +21,27 @@ const Movies = () => {
   };
 
   return (
-    <div className="movies-list-ctr">
-      <div className="title-ctr">
-        <h1>Tela listagem de filmes</h1>
-      </div>
-      <div className="list-movies-ctr">
-        <MovieCard movie={movie} />
+    <div>
+      <div className="movies-page-ctr">
+        
+        <GenreFilter />
+        
+        <div className="list-movies-ctr">
+          <div className="row">
+            <div className="col-sm-6 col-xl-3">
+              <MovieCard movie={movie} />
+            </div>
+            <div className="col-sm-6 col-xl-3">
+              <MovieCard movie={movie} />
+            </div>
+            <div className="col-sm-6 col-xl-3">
+              <MovieCard movie={movie} />
+            </div>
+            <div className="col-sm-6 col-xl-3">
+              <MovieCard movie={movie} />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
