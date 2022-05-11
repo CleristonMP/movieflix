@@ -8,6 +8,12 @@
 .arrow-left {
   margin-right: 4px;
   color: #ffc700;
+  transform: rotate(180deg);
+}
+
+.arrow-right {
+  margin-left: 4px;
+  color: #ffc700;
 }
 
 .pagination-item {
@@ -17,14 +23,8 @@
   margin: 0 4px;
 }
 
-.pagination-item.active {
+.pagination-item.item-active {
   background-color: #ffc700;
-}
-
-.arrow-right {
-  margin-left: 4px;
-  color: #ffc700;
-  transform: rotate(180deg);
 }
 
 .arrow-inactive {

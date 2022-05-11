@@ -1,22 +1,32 @@
-import { ReactComponent as Arrow } from 'assets/images/arrow.svg';
+import { ReactComponent as ArrowIcon } from 'assets/images/arrow.svg';
+import ReactPaginate from 'react-paginate';
 
 import './styles.css';
 
 const Pagination = () => {
   return (
-    <div className="pagination-ctr">
-      <div className="arrow-ctr">
-        <Arrow className="arrow-left arrow-inactive" />
-      </div>
-      <div className="pagination-item active">1</div>
-      <div className="pagination-item">2</div>
-      <div className="pagination-item">3</div>
-      <div className="pagination-item">...</div>
-      <div className="pagination-item">5</div>
-      <div className="arrow-ctr">
-        <Arrow className="arrow-right" />
-      </div>
-    </div>
+    <ReactPaginate
+      pageCount={6}
+      pageRangeDisplayed={3}
+      marginPagesDisplayed={1}
+      containerClassName="pagination-ctr"
+      pageLinkClassName="pagination-item"
+      breakClassName="pagination-item"
+      previousClassName="arrow-left"
+      nextClassName="arrow-right"
+      activeLinkClassName="item-active"
+      disabledClassName="arrow-inactive"
+      previousLabel={
+        <div className="arrow-ctr">
+          <ArrowIcon />
+        </div>
+      }
+      nextLabel={
+        <div className="arrow-ctr">
+          <ArrowIcon />
+        </div>
+      }
+    />
   );
 };
 
