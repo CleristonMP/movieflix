@@ -20,6 +20,7 @@
 }
 
 .movie-details-year {
+  font-weight: 700;
   color: #ffc700;
 }
 
@@ -36,4 +37,56 @@
 .movie-details-synopsis p {
   color: #9e9e9e;
   text-align: justify;
+}
+
+@media (min-width: 768px) {
+  .movie-details-ctr {
+    padding: 40px;
+  }
+
+  .movie-details-infos h2 {
+    font-size: 36px;
+  }
+
+  .movie-details-year {
+    font-size: 24px;
+  }
+
+  .movie-details-subtitle {
+    font-size: 24px;
+  }
+
+  .movie-details-synopsis p {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 992px) {
+  .movie-details-img {
+    text-align: center;
+  }
+
+  .movie-details-img img {
+    max-width: 610px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .movie-details-ctr {
+    display: flex;
+  }
+
+  .movie-details-img {
+    width: 55%;
+    text-align: unset;
+  }
+
+  .movie-details-img img {
+    max-width: 500px;
+  }
+
+  .movie-details-content {
+    width: 45%;
+  }
+
 }
