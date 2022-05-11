@@ -3,11 +3,19 @@ import ReactPaginate from 'react-paginate';
 
 import './styles.css';
 
-const Pagination = () => {
+type Props = {
+  forcePage?: number;
+  pageCount: number;
+  range: number;
+  onChange?: (pageNumber: number) => void;
+};
+
+const Pagination = ({ forcePage, pageCount, range, onChange }: Props) => {
   return (
     <ReactPaginate
-      pageCount={6}
-      pageRangeDisplayed={3}
+      forcePage={forcePage}
+      pageCount={pageCount}
+      pageRangeDisplayed={range}
       marginPagesDisplayed={1}
       containerClassName="pagination-ctr"
       pageLinkClassName="pagination-item"
@@ -16,6 +24,7 @@ const Pagination = () => {
       nextClassName="arrow-right"
       activeLinkClassName="item-active"
       disabledClassName="arrow-inactive"
+      onPageChange={(items) => (onChange ? onChange(items.selected) : {})}
       previousLabel={
         <div className="arrow-ctr">
           <ArrowIcon />

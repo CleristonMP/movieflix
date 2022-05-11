@@ -65,7 +65,12 @@ const Movies = () => {
             ))}
           </div>
         </div>
-        <Pagination />
+        <Pagination
+          forcePage={page?.number}
+          pageCount={page ? page.totalPages : 0}
+          range={3}
+          onChange={handlePageChange}
+        />
       </div>
     </div>
   );
