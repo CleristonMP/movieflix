@@ -2,10 +2,11 @@ import { AxiosRequestConfig } from 'axios';
 import ReviewForm from 'components/ReviewForm';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Movie } from "types/movie";
+import { Movie } from 'types/movie';
 import { Review } from 'types/review';
 import { hasAnyRoles } from 'utils/auth';
 import { requestBackend } from 'utils/requests';
+import EmptyCard from './EmptyCard';
 import MovieDetailsCard from './MovieDetailsCard';
 import ReviewCard from './ReviewCard';
 
@@ -58,16 +59,20 @@ const Reviews = () => {
 
   return (
     <div className="container custom-container">
-      { movie ? <MovieDetailsCard movie={movie} /> : ''}
+      {movie ? <MovieDetailsCard movie={movie} /> : ''}
 
       {hasAnyRoles(['ROLE_MEMBER']) && (
         <ReviewForm movieId={movieId} onInsertReview={handleInsertReview} />
       )}
 
       <div className="reviews-group base-card">
-        {reviews?.map((review) => (
-          <ReviewCard review={review} key={review.id} />
-        ))}
+        {reviews.length === 0 ? (
+          <EmptyCard />
+        ) : (
+          reviews?.map((review) => (
+            <ReviewCard review={review} key={review.id} />
+          ))
+        )}
       </div>
     </div>
   );
