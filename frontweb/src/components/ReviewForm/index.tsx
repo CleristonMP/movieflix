@@ -1,5 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 import { useForm } from 'react-hook-form';
+import { toast } from "react-toastify";
 import { Review } from 'types/review';
 import { requestBackend } from 'utils/requests';
 
@@ -35,7 +36,9 @@ const ReviewForm = ({ movieId, onInsertReview }: Props) => {
     requestBackend(params).then((response) => {
       setValue('text', '');
       onInsertReview(response.data);
-      console.log(response);
+      toast.success("Avaliação inserida com sucesso!");
+    }).catch(() => {
+      toast.error("Não foi possível inserir sua avaliação.");
     });
   };
 

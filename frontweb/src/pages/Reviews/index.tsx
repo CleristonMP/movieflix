@@ -2,6 +2,7 @@ import { AxiosRequestConfig } from 'axios';
 import ReviewForm from 'components/ReviewForm';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Movie } from "types/movie";
 import { Review } from 'types/review';
 import { hasAnyRoles } from 'utils/auth';
 import { requestBackend } from 'utils/requests';
@@ -19,14 +20,30 @@ const Reviews = () => {
 
   const [reviews, setReviews] = useState<Review[]>([]);
 
+  const [movie, setMovie] = useState<Movie>();
+
   useEffect(() => {
-    const params: AxiosRequestConfig = {
+    const config: AxiosRequestConfig = {
+      method: 'GET',
+      withCredentials: true,
+      url: `/movies/${movieId}`,
+    };
+
+    requestBackend(config)
+      .then((response) => {
+        setMovie(response.data);
+      })
+      .catch((error) => {});
+  }, [movieId]);
+
+  useEffect(() => {
+    const config: AxiosRequestConfig = {
       method: 'GET',
       withCredentials: true,
       url: `/movies/${movieId}/reviews`,
     };
 
-    requestBackend(params)
+    requestBackend(config)
       .then((response) => {
         setReviews(response.data);
       })
@@ -41,7 +58,7 @@ const Reviews = () => {
 
   return (
     <div className="container custom-container">
-      <MovieDetailsCard />
+      { movie ? <MovieDetailsCard movie={movie} /> : ''}
 
       {hasAnyRoles(['ROLE_MEMBER']) && (
         <ReviewForm movieId={movieId} onInsertReview={handleInsertReview} />
