@@ -45,7 +45,7 @@ const GenreFilter = ({ onSubmitFilter }: Props) => {
 
   return (
     <div className="genre-filter-ctr base-card">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className="genre-filter-form" onSubmit={handleSubmit(onSubmit)}>
         <Controller
           name="genre"
           control={control}
