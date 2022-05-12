@@ -6,6 +6,7 @@ import { Movie } from 'types/movie';
 import { Review } from 'types/review';
 import { hasAnyRoles } from 'utils/auth';
 import { requestBackend } from 'utils/requests';
+import DetailsLoader from './DetailsLoader';
 import EmptyCard from './EmptyCard';
 import MovieDetailsCard from './MovieDetailsCard';
 import ReviewCard from './ReviewCard';
@@ -23,6 +24,8 @@ const Reviews = () => {
 
   const [movie, setMovie] = useState<Movie>();
 
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     const config: AxiosRequestConfig = {
       method: 'GET',
@@ -30,11 +33,14 @@ const Reviews = () => {
       url: `/movies/${movieId}`,
     };
 
+    setIsLoading(true);
     requestBackend(config)
       .then((response) => {
         setMovie(response.data);
       })
-      .catch((error) => {});
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [movieId]);
 
   useEffect(() => {
@@ -44,11 +50,9 @@ const Reviews = () => {
       url: `/movies/${movieId}/reviews`,
     };
 
-    requestBackend(config)
-      .then((response) => {
-        setReviews(response.data);
-      })
-      .catch((error) => {});
+    requestBackend(config).then((response) => {
+      setReviews(response.data);
+    });
   }, [movieId]);
 
   const handleInsertReview = (review: Review) => {
@@ -59,7 +63,13 @@ const Reviews = () => {
 
   return (
     <div className="container custom-container">
-      {movie ? <MovieDetailsCard movie={movie} /> : ''}
+      {isLoading ? (
+        <DetailsLoader />
+      ) : movie ? (
+        <MovieDetailsCard movie={movie} />
+      ) : (
+        ''
+      )}
 
       {hasAnyRoles(['ROLE_MEMBER']) && (
         <ReviewForm movieId={movieId} onInsertReview={handleInsertReview} />

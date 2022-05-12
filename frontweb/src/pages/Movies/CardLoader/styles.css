@@ -1,0 +1,22 @@
+.card-loader-ctr {
+  display: flex;
+  min-height: 325px;
+}
+
+@media (min-width: 768px) {
+  .card-loader-ctr {
+    min-height: 365px;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-loader-ctr {
+    min-height: 400px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-loader-ctr {
+    min-height: 280px;
+  }
+}

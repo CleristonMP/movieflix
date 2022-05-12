@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Movie } from 'types/movie';
 import { SpringPage } from 'types/vendor/spring';
 import { requestBackend } from 'utils/requests';
+import CardLoader from "./CardLoader";
 import GenreFilter, { GenreFilterData } from './GenreFilter';
 import MovieCard from './MovieCard';
 import Pagination from './Pagination';
@@ -17,6 +18,7 @@ type ControlComponentsData = {
 
 const Movies = () => {
   const [page, setPage] = useState<SpringPage<Movie>>();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [controlComponentsData, setControlComponentsData] =
     useState<ControlComponentsData>({
@@ -47,9 +49,14 @@ const Movies = () => {
       },
     };
 
-    requestBackend(config).then((response) => {
-      setPage(response.data);
-    });
+    setIsLoading(true);
+    requestBackend(config)
+      .then((response) => {
+        setPage(response.data);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [controlComponentsData]);
 
   return (
@@ -59,7 +66,8 @@ const Movies = () => {
 
         <div className="list-movies-ctr">
           <div className="row">
-            {page?.content.map((movie) => (
+            {isLoading ? <CardLoader /> :
+            page?.content.map((movie) => (
               <div key={movie.id} className="col-sm-6 col-xl-3">
                 <Link to={`/movies/${movie.id}`}>
                   <MovieCard movie={movie} />

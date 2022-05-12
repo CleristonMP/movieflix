@@ -3,7 +3,7 @@
 }
 
 .custom-brand {
-  font-size: 24px;
+  font-size: 24px !important;
   letter-spacing: -0.015em;
   font-weight: 700;
 }
