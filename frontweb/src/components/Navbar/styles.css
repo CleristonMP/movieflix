@@ -12,10 +12,9 @@
   width: 100px;
   height: 30px;
   text-transform: uppercase;
-  font-size: 14px;
-  letter-spacing: -0.015em;
-  font-weight: 700;
-  display: flex;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  display: flex !important;
   align-items: center;
   justify-content: center;
 }

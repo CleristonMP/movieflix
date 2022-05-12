@@ -47,13 +47,13 @@
 
 @media (min-width: 992px) {
   .moviecard-ctr {
-    min-height: 460px;
+    min-height: 400px;
   }
 }
 
 @media (min-width: 1200px) {
   .moviecard-ctr {
-    min-height: 325px;
+    min-height: 280px;
   }
 
   .moviecard-subtitle {

@@ -2,18 +2,10 @@
   padding: 20px 10px 30px;
 }
 
-.title-ctr {
-  margin-top: 12px;
-  margin-bottom: 50px;
-}
-
-.title-ctr h1 {
-  font-size: 24px;
-}
-
 .list-movies-ctr {
   display: flex;
   flex-direction: column;
+  margin-bottom: 25px;
 }
 
 @media (min-width: 576px) {
@@ -21,13 +13,8 @@
     padding: 20px 20px 30px;
   }
 
-  .title-ctr {
-    margin-top: 20px;
-    margin-bottom: 40px;
-  }
-
-  .title-ctr h1 {
-    font-size: 36px;
+  .list-movies-ctr {
+    margin-bottom: 20px;
   }
 }
 
@@ -36,12 +23,8 @@
     padding: 40px 40px 50px;
   }
 
-  .title-ctr {
-    margin-top: 30px;
-  }
-
-  .title-ctr h1 {
-    font-size: 42px;
+  .list-movies-ctr {
+    margin-bottom: 40px;
   }
 }
 
@@ -49,13 +32,5 @@
   .movies-page-ctr {
     max-width: 1120px;
     margin: auto;
-  }
-
-  .title-ctr {
-    margin-top: 40px;
-  }
-
-  .title-ctr h1 {
-    font-size: 48px;
   }
 }

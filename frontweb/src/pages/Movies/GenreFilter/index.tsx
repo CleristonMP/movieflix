@@ -37,7 +37,6 @@ const GenreFilter = ({ onSubmitFilter }: Props) => {
   useEffect(() => {
     requestBackend({ url: '/genres', withCredentials: true }).then(
       (response) => {
-        console.log(response.data);
         setSelectGenres(response.data);
       }
     );
